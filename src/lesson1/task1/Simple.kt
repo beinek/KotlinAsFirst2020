@@ -89,10 +89,7 @@ fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
  * Найти длину отрезка, соединяющего точки на плоскости с координатами (x1, y1) и (x2, y2).
  * Например, расстояние между (3, 0) и (0, 4) равно 5
  */
-fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double {
-    var d = sqrt(sqr((x2 - x1)) + sqr((y2 - y1)))
-    return d
-}
+fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = sqrt(sqr((x2 - x1)) + sqr((y2 - y1)))
 
 /**
  * Простая (2 балла)
@@ -101,9 +98,8 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double {
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
 fun thirdDigit(number: Int): Int {
-    var halfNumber = number / 100
-    var hundred = halfNumber % 10
-    return hundred
+    val halfNumber = number / 100
+    return halfNumber % 10
 }
 
 /**
@@ -114,8 +110,8 @@ fun thirdDigit(number: Int): Int {
  * Определите время поезда в пути в минутах (в данном случае 216).
  */
 fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minutesArrive: Int): Int {
-    var sumDepartMinutes = (hoursDepart * 60) + minutesDepart
-    var sumArriveMinutes = (hoursArrive * 60) + minutesArrive
+    val sumDepartMinutes = (hoursDepart * 60) + minutesDepart
+    val sumArriveMinutes = (hoursArrive * 60) + minutesArrive
     return sumArriveMinutes - sumDepartMinutes
 }
 
@@ -129,7 +125,7 @@ fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minute
 fun accountInThreeYears(initial: Int, percent: Int): Double {
     var result: Double = initial.toDouble()
     for (num in 0..2) {
-        result += result.toDouble() * percent.toDouble() / 100
+        result += result * percent.toDouble() / 100
     }
     return result
 }
@@ -141,9 +137,8 @@ fun accountInThreeYears(initial: Int, percent: Int): Double {
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
 fun numberRevert(number: Int): Int {
-    var hundreds = number / 100
-    var decades = (number / 10) % 10
-    var units = number % 10
-
+    val hundreds = number / 100
+    val decades = (number / 10) % 10
+    val units = number % 10
     return (units * 100) + (decades * 10) + hundreds
 }

@@ -5,7 +5,6 @@ package lesson2.task1
 import lesson1.task1.discriminant
 import kotlin.math.max
 import kotlin.math.sqrt
-
 // Урок 2: ветвления (здесь), логический тип (см. 2.2).
 // Максимальное количество баллов = 6
 // Рекомендуемое количество баллов = 5
@@ -68,7 +67,24 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
  * Мой возраст. Для заданного 0 < n < 200, рассматриваемого как возраст человека,
  * вернуть строку вида: «21 год», «32 года», «12 лет».
  */
-fun ageDescription(age: Int): String = TODO()
+
+fun ageDescription(age: Int): String {
+    return when (age % 10) {
+        0 -> {
+            "$age лет"
+        }
+        1 -> {
+            "$age год"
+        }
+        in 2..4 -> {
+            "$age года"
+        }
+        in 5..9 -> {
+            "$age лет"
+        }
+        else -> ""
+    }
+}
 
 /**
  * Простая (2 балла)
@@ -81,8 +97,13 @@ fun timeForHalfWay(
     t1: Double, v1: Double,
     t2: Double, v2: Double,
     t3: Double, v3: Double
-): Double = TODO()
-
+): Double {
+    val totalDistance = (t1 * v1) + (t2 * v2) + (t3 * v3)
+    return totalDistance / 2
+}
+fun main() {
+    print(timeForHalfWay(4.0, 3.0, 1.0, 4.0, 1.0, 6.0))
+}
 /**
  * Простая (2 балла)
  *
@@ -96,7 +117,12 @@ fun whichRookThreatens(
     kingX: Int, kingY: Int,
     rookX1: Int, rookY1: Int,
     rookX2: Int, rookY2: Int
-): Int = TODO()
+): Int {
+    var result = 0
+    if (kingX == rookX1 || kingY == rookY1) result += 1
+    if (kingX == rookX2 || kingY == rookY2) result += 2
+    return result
+}
 
 /**
  * Простая (2 балла)
@@ -112,7 +138,17 @@ fun rookOrBishopThreatens(
     kingX: Int, kingY: Int,
     rookX: Int, rookY: Int,
     bishopX: Int, bishopY: Int
-): Int = TODO()
+): Int {
+    var result = 0
+    if (kingX == rookX || kingY == rookY) result += 1
+    if (kingX < bishopX) { // Король находится слева от слона
+        if ((kingX + kingY == bishopX + bishopY) || (bishopX - kingX == bishopY - kingY)) result += 2
+    }
+    if (kingX > bishopX) { // Король находится справа от слона
+        if ((kingX - bishopX == bishopY - kingY) || (kingX - bishopX == kingY - bishopY)) result += 2
+    }
+    return result
+}
 
 /**
  * Простая (2 балла)
