@@ -86,6 +86,9 @@ fun ageDescription(age: Int): String {
         else -> ""
     }
 }
+fun main() {
+    print(ageDescription(12))
+}
 
 /**
  * Простая (2 балла)
