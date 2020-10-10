@@ -67,7 +67,7 @@ fun daysInMonth(month: Int, year: Int): Int {
     return when (month) {
         1 -> 31
         3 -> 31
-        4 -> 31
+        4 -> 30
         5 -> 31
         6 -> 30
         7 -> 31
