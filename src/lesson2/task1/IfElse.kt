@@ -87,9 +87,7 @@ fun ageDescription(age: Int): String {
         else -> ""
     }
 }
-fun main() {
-    print(ageDescription(111))
-}
+
 
 /**
  * Простая (2 балла)
@@ -169,9 +167,14 @@ fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
  * Если пересечения нет, вернуть -1.
  */
 fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int {
+    if (b == a && d == c) return 0
     if (d - c > b - a) return b - a
     if (c > a && d > b) return b - c
     if (b > d && a > c && d >= a) return d - a
     if (b > d && c > a) return d - c
     return -1
+}
+
+fun main() {
+    print(segmentLength(0, 0, 0, 0))
 }
